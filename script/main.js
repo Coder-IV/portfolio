@@ -62,3 +62,13 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
     });
 });
+
+const videoElement = document.getElementById('video');
+
+// Verificar se o dispositivo é um dispositivo móvel
+const isMobilee = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+// Desativar o autoplay se for um dispositivo móvel
+if (isMobilee) {
+    videoElement.removeAttribute('autoplay');
+}

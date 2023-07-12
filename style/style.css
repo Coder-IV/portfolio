@@ -5,6 +5,7 @@ body {
     color: white;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: none;
 }
 
 .container {
@@ -31,6 +32,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.755);
     text-align: center;
     font-style: italic;
+    padding-bottom: 20px;
 }
 
 div#buttom {
