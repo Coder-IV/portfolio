@@ -50,6 +50,7 @@ input {
     background-color: white;
     font-size: medium;
     font-weight: 600;
+    cursor: none;
 }
 
 #seletor-do-elemento {
@@ -65,7 +66,7 @@ input {
 }
 
 .a1 {
-    background-color: rgba(0, 0, 0, 0.601);
+    background-color: rgba(0, 0, 0, 0.433);
     margin: auto;
     border-radius: 20px;
     max-width: 460px;
@@ -78,7 +79,7 @@ input {
 }
 
 .b {
-    background-color: rgba(0, 0, 0, 0.601);
+    background-color: rgba(0, 0, 0, 0.432);
     width: 200px;
     border-radius: 20px;
 
@@ -126,4 +127,12 @@ input {
         max-height: 400px;
         object-fit: cover;
     }
+}
+
+section div {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+a {
+    cursor: none;
 }
