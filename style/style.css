@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+body {
+    background-color: rgba(0, 0, 0, 0.897);
+    color: white;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    position: relative;
+    overflow: hidden;
+}
+
+#video {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+header {
+    text-align: center;
+    font-size: large;
+}
+
+section {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    font-style: italic;
+}
+
+div#buttom {
+    text-align: center;
+}
+
+input {
+    margin-top: 20px;
+    height: 40px;
+    width: auto;
+    border-radius: 20px;
+    color: black;
+    background-color: white;
+    font-size: medium;
+    font-weight: 600;
+}
+
+#seletor-do-elemento {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #3bdc73;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+}
