@@ -24,6 +24,10 @@ header {
     font-size: large;
 }
 
+#princ {
+    padding-top: 20px;
+}
+
 section {
     text-align: center;
 }
@@ -37,7 +41,7 @@ footer {
 
 div#buttom {
     text-align: center;
-    margin-top: 80px;
+    padding-bottom: 20px;
     margin-bottom: 100px;
 }
 
@@ -66,7 +70,7 @@ input {
 }
 
 .a1 {
-    background-color: rgba(0, 0, 0, 0.433);
+    background-color: rgba(0, 0, 0, 0.718);
     margin: auto;
     border-radius: 20px;
     max-width: 460px;
@@ -79,7 +83,7 @@ input {
 }
 
 .b {
-    background-color: rgba(0, 0, 0, 0.432);
+    background-color: rgba(0, 0, 0, 0.718);
     width: 200px;
     border-radius: 20px;
 
@@ -115,7 +119,6 @@ input {
     display: none;
 }
 
-/* Media query para dispositivos móveis */
 @media (max-width: 768px) {
     #video {
         display: none;
@@ -135,4 +138,21 @@ section div {
 
 a {
     cursor: none;
+}
+
+main {
+    background-color: rgb(17, 17, 17);
+    margin: 30px 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.167);
+    padding: 0 10px;
+}
+
+@media (min-width: 600px) {
+    main {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 600px;
+        min-width: 100px;
+    }
 }

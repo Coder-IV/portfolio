@@ -4,13 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let mouseY = 0;
     let isMobile = false;
 
-    // Verifica se o dispositivo é um celular
     function checkMobile() {
         const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
         isMobile = mobileRegex.test(navigator.userAgent);
     }
 
-    // Atualiza a posição da bolinha
     function atualizarPosicao() {
         if (!isMobile) {
             seletorElemento.style.left = mouseX + 'px';
@@ -18,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Exibe a bolinha
     function exibirBolinha() {
         if (!isMobile) {
             seletorElemento.style.visibility = 'visible';
@@ -26,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Oculta a bolinha
     function ocultarBolinha() {
         if (!isMobile) {
             seletorElemento.style.visibility = 'hidden';
@@ -34,17 +30,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Função chamada quando o mouse se move
     function onMouseMove(event) {
         mouseX = event.clientX;
         mouseY = event.clientY;
         atualizarPosicao();
     }
 
-    // Função chamada quando o dispositivo é um celular
     function onMobile() {
-        seletorElemento.style.display = 'none'; // Oculta a bolinha completamente no celular
-        document.body.style.cursor = 'default'; // Restaura o cursor padrão no celular
+        seletorElemento.style.display = 'none';
+        document.body.style.cursor = 'default';
     }
 
     checkMobile();
@@ -57,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('mouseout', ocultarBolinha);
     }
 
-    // Impede o comportamento padrão de toque no celular
     document.addEventListener('touchstart', function (event) {
         event.preventDefault();
     });
@@ -65,10 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const videoElement = document.getElementById('video');
 
-// Verificar se o dispositivo é um dispositivo móvel
 const isMobilee = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-// Desativar o autoplay se for um dispositivo móvel
 if (isMobilee) {
     videoElement.removeAttribute('autoplay');
+}
+
+if (!isMobilee) {
+    videoElement.play();
 }
