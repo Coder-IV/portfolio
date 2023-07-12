@@ -1,55 +1,64 @@
-function redirecionamento() {
-    window.open('https://github.com/Coder-IV', '_blank')
-}
-
-
 document.addEventListener('DOMContentLoaded', function () {
     const seletorElemento = document.getElementById('seletor-do-elemento');
     let mouseX = 0;
     let mouseY = 0;
+    let isMobile = false;
 
-    document.addEventListener('mousemove', function (event) {
-        mouseX = event.clientX;
-        mouseY = event.clientY;
-    });
+    // Verifica se o dispositivo é um celular
+    function checkMobile() {
+        const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+        isMobile = mobileRegex.test(navigator.userAgent);
+    }
 
+    // Atualiza a posição da bolinha
     function atualizarPosicao() {
-        seletorElemento.style.left = mouseX + 'px';
-        seletorElemento.style.top = mouseY + 'px';
-    }
-
-    function exibirBolinha() {
-        seletorElemento.style.visibility = 'visible';
-        seletorElemento.style.opacity = '1';
-        document.body.style.cursor = 'none';
-    }
-
-    function ocultarBolinha() {
-        seletorElemento.style.visibility = 'hidden';
-        seletorElemento.style.opacity = '0';
-        document.body.style.cursor = 'default';
-    }
-
-    function substituirCursor(event) {
-        const target = event.target;
-        if (target.tagName.toLowerCase() === 'input' && target.parentNode.tagName.toLowerCase() === 'a') {
-            document.body.style.cursor = 'none';
+        if (!isMobile) {
+            seletorElemento.style.left = mouseX + 'px';
+            seletorElemento.style.top = mouseY + 'px';
         }
     }
 
-    function restaurarCursor(event) {
-        document.body.style.cursor = 'none';
+    // Exibe a bolinha
+    function exibirBolinha() {
+        if (!isMobile) {
+            seletorElemento.style.visibility = 'visible';
+            seletorElemento.style.opacity = '1';
+        }
     }
 
-    function loopAnimacao() {
+    // Oculta a bolinha
+    function ocultarBolinha() {
+        if (!isMobile) {
+            seletorElemento.style.visibility = 'hidden';
+            seletorElemento.style.opacity = '0';
+        }
+    }
+
+    // Função chamada quando o mouse se move
+    function onMouseMove(event) {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
         atualizarPosicao();
-        requestAnimationFrame(loopAnimacao);
     }
 
-    loopAnimacao();
+    // Função chamada quando o dispositivo é um celular
+    function onMobile() {
+        seletorElemento.style.display = 'none'; // Oculta a bolinha completamente no celular
+        document.body.style.cursor = 'default'; // Restaura o cursor padrão no celular
+    }
 
-    document.addEventListener('mouseover', exibirBolinha);
-    document.addEventListener('mouseout', ocultarBolinha);
-    document.addEventListener('mousemove', substituirCursor);
-    document.addEventListener('mouseout', restaurarCursor);
+    checkMobile();
+
+    if (isMobile) {
+        onMobile();
+    } else {
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseover', exibirBolinha);
+        document.addEventListener('mouseout', ocultarBolinha);
+    }
+
+    // Impede o comportamento padrão de toque no celular
+    document.addEventListener('touchstart', function (event) {
+        event.preventDefault();
+    });
 });
