@@ -175,4 +175,5 @@ footer > p {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.3s;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.363);
 }
